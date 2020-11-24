@@ -7,7 +7,8 @@ from pandas import DataFrame
 
 def load_dbf_into_pd(FILENAME):
     # print('load_dbf_into_pd: ', FILENAME)
-    table = DBF(FILENAME, load=True)
+    #table = DBF(FILENAME, load=True)
+    table = DBF(FILENAME, load=True, encoding='UTF-8', char_decode_errors='ignore', ignore_missing_memofile=True)
     # print('load_dbf_into_pd table created')
     return DataFrame(iter(table))
 
